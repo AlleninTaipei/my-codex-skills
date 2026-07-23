@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Slides"
+  short_description: "Create distinctive animated HTML presentations"
+  default_prompt: "Use $frontend-slides to create an animated HTML presentation."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Markdown to Interactive Course"
+  short_description: "Turn Markdown into a self-contained interactive course"
+  default_prompt: "Use $md2course to convert this Markdown file into an interactive HTML course."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learn Project Documentation"
+  short_description: "Create an engaging Traditional Chinese LEARN.md"
+  default_prompt: "Use $learndoc to explain the current project in LEARN.md."
