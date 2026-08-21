@@ -8,9 +8,10 @@
 | --- | --- |
 | `codebase-to-course` | 將程式碼庫轉換成適合非技術讀者的互動式 HTML 課程. |
 | `frontend-slides` | 從零製作動畫豐富的 HTML 簡報, 或將 PowerPoint 轉換成網頁簡報. |
+| `knowledge-youtube-to-markdown` | 將知識型 YouTube 影片或頻道批次整理成有來源依據的 Markdown 筆記. |
 | `learndoc` | 分析目前軟體專案, 產生繁體中文的 `LEARN.md` 導讀文件. |
 | `md2course` | 將 Markdown 文件轉換成自包含, 支援明暗主題的互動式 HTML 課程. |
-| `video-to-editable-slides` | 分析簡報型影片, 重建成結構化且可編輯的 PowerPoint 簡報. |
+| `video-to-editable-slides` | 分析簡報型影片, 重建成結構化的可編輯 PowerPoint 與獨立 PDF 簡報. |
 
 ## Repository 結構
 
@@ -21,6 +22,7 @@
 └── skills/
     ├── codebase-to-course/
     ├── frontend-slides/
+    ├── knowledge-youtube-to-markdown/
     ├── learndoc/
     ├── md2course/
     └── video-to-editable-slides/

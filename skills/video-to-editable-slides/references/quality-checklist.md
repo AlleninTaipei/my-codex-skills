@@ -29,6 +29,9 @@
 - Open the file with `python-pptx` after saving.
 - Test ZIP package integrity.
 - Confirm slide count and dimensions.
+- Generate a standalone PDF from the same slide specification without requiring Microsoft PowerPoint.
+- Confirm PDF page count matches the PowerPoint slide count.
+- Confirm the PDF uses a 16:9 page size and embeds or references a Unicode-capable font.
 - Check missing image targets and external relationships.
 - Render to images or PDF when a compatible renderer is available.
 - Retain source media separately from the final deck so temporary assets can be removed safely.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Video to Editable Slides"
-  short_description: "Rebuild presentation videos as editable PowerPoint decks"
-  default_prompt: "Use $video-to-editable-slides to turn this video into a structured, editable PowerPoint deck."
+  short_description: "Rebuild videos as editable PowerPoint and standalone PDF decks"
+  default_prompt: "Use $video-to-editable-slides to turn this video into matching editable PowerPoint and standalone PDF decks."
