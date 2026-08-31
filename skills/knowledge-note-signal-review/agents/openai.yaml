@@ -1,0 +1,4 @@
+interface:
+  display_name: "知識筆記訊噪評估"
+  short_description: "評估知識筆記的來源責任、證據、可操作性與知識庫新增價值"
+  default_prompt: "Use $knowledge-note-signal-review to evaluate whether this knowledge note should be kept, skimmed, or skipped for now."

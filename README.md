@@ -8,6 +8,7 @@
 | --- | --- |
 | `codebase-to-course` | 將程式碼庫轉換成適合非技術讀者的互動式 HTML 課程. |
 | `frontend-slides` | 從零製作動畫豐富的 HTML 簡報, 或將 PowerPoint 轉換成網頁簡報. |
+| `knowledge-note-signal-review` | 評估既有知識筆記的來源責任, 證據, 可操作性與新增價值, 並建議保留, 略讀或暫時跳過. |
 | `knowledge-youtube-to-markdown` | 將知識型 YouTube 影片或頻道批次整理成有來源依據的 Markdown 筆記. |
 | `learndoc` | 分析目前軟體專案, 產生繁體中文的 `LEARN.md` 導讀文件. |
 | `md2course` | 將 Markdown 文件轉換成自包含, 支援明暗主題的互動式 HTML 課程. |
@@ -22,6 +23,7 @@
 └── skills/
     ├── codebase-to-course/
     ├── frontend-slides/
+    ├── knowledge-note-signal-review/
     ├── knowledge-youtube-to-markdown/
     ├── learndoc/
     ├── md2course/
