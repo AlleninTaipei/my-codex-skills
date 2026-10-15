@@ -8,10 +8,12 @@
 | --- | --- |
 | `codebase-to-course` | 將程式碼庫轉換成適合非技術讀者的互動式 HTML 課程. |
 | `frontend-slides` | 從零製作動畫豐富的 HTML 簡報, 或將 PowerPoint 轉換成網頁簡報. |
+| `frontend-design` | 依設計需求製作前端介面, 包含視覺規劃, 實作與檢視. |
 | `knowledge-note-signal-review` | 評估既有知識筆記的來源責任, 證據, 可操作性與新增價值, 並建議保留, 略讀或暫時跳過. |
 | `knowledge-youtube-to-markdown` | 將知識型 YouTube 影片或頻道批次整理成有來源依據的 Markdown 筆記. |
 | `learndoc` | 分析目前軟體專案, 產生繁體中文的 `LEARN.md` 導讀文件. |
 | `md2course` | 將 Markdown 文件轉換成自包含, 支援明暗主題的互動式 HTML 課程. |
+| `programmatic-video` | 以 Python 產生影片畫面, 配樂與 MP4, 並提供可選的 AI 影片混合流程. |
 | `video-to-editable-slides` | 分析簡報型影片, 重建成結構化的可編輯 PowerPoint 與獨立 PDF 簡報. |
 
 ## Repository 結構
@@ -23,10 +25,12 @@
 └── skills/
     ├── codebase-to-course/
     ├── frontend-slides/
+    ├── frontend-design/
     ├── knowledge-note-signal-review/
     ├── knowledge-youtube-to-markdown/
     ├── learndoc/
     ├── md2course/
+    ├── programmatic-video/
     └── video-to-editable-slides/
 ```
 
@@ -44,13 +48,15 @@
 Copy-Item -Recurse .\skills\<skill-name> "$env:USERPROFILE\.codex\skills\"
 ```
 
-也可以一次複製全部 skills:
+也可以使用安裝腳本同步全部 skills. 腳本會先備份將被覆寫的檔案, 保留目的地其他 skills 與額外檔案:
 
 ```powershell
-Copy-Item -Recurse .\skills\* "$env:USERPROFILE\.codex\skills\"
+.\scripts\Install-Skills.ps1
 ```
 
-重新啟動 Codex 後, 即可依各 `SKILL.md` 定義的觸發條件使用.
+預設安裝至 `$CODEX_HOME/skills`, 未設定時使用 `~/.codex/skills`. 可用 `-Destination` 指定位置. 安裝後下一回合即可使用; 若清單尚未刷新, 請重新開啟對話.
+
+本機 Claude Code 的比對範圍, 來源與未移植項目見 [同步紀錄](docs/claude-code-sync.md).
 
 ## 使用方式
 

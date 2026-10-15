@@ -23,6 +23,8 @@ def main():
     def card(slide,x,y,w,h,heading,body,color):
         sh=slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE,Inches(x),Inches(y),Inches(w),Inches(h)); sh.fill.solid(); sh.fill.fore_color.rgb=rgb("#232327"); sh.line.color.rgb=color
         text(slide,x+.17,y+.12,w-.34,.4,heading,15,color,True); text(slide,x+.17,y+.56,w-.34,h-.68,body,12,fg)
+    def arrow(slide,x,y,w,h,color):
+        sh=slide.shapes.add_shape(MSO_SHAPE.RIGHT_ARROW,Inches(x),Inches(y),Inches(w),Inches(h)); sh.fill.solid(); sh.fill.fore_color.rgb=color; sh.line.fill.background()
     for idx, spec in enumerate(data.get("slides", []), 1):
         slide=prs.slides.add_slide(prs.slide_layouts[6]); slide.background.fill.solid(); slide.background.fill.fore_color.rgb=bg
         bar=slide.shapes.add_shape(MSO_SHAPE.RECTANGLE,0,0,prs.slide_width,Inches(.05)); bar.fill.solid(); bar.fill.fore_color.rgb=accent; bar.line.fill.background()
@@ -35,8 +37,12 @@ def main():
         if subtitle: text(slide,.77,1.3,11.5,.4,subtitle,13,muted)
         elems=spec.get("elements",[])
         if layout in ("cards","comparison","process"):
-            n=max(1,len(elems)); gap=.3; left=.75; total=11.83; w=(total-gap*(n-1))/n
-            for i,e in enumerate(elems): card(slide,left+i*(w+gap),2.0,w,3.25,e.get("heading",e.get("text",f"{i+1}")),e.get("body",e.get("caption","")),rgb(e.get("accent",theme["accent"])))
+            n=max(1,len(elems)); gap=.3; left=.75; total=11.83; w=(total-gap*(n-1))/n; card_y=2.0; card_h=3.25
+            for i,e in enumerate(elems):
+                cx=left+i*(w+gap)
+                card(slide,cx,card_y,w,card_h,e.get("heading",e.get("text",f"{i+1}")),e.get("body",e.get("caption","")),rgb(e.get("accent",theme["accent"])))
+                if layout=="process" and i<n-1:
+                    arrow(slide,cx+w+.03,card_y+card_h/2-.11,gap-.06,.22,accent)
         elif layout == "quote":
             q=elems[0].get("text","") if elems else ""; text(slide,1.1,2.05,11.1,2.4,q,30,accent,True,PP_ALIGN.CENTER)
         elif layout == "image":

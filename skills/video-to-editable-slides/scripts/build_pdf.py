@@ -105,6 +105,22 @@ def draw_card(c, element, x, y, w, h, theme, font):
     )
 
 
+def draw_process_arrow(c, x, y, gap, color):
+    c.setFillColor(HexColor(color))
+    pad = 3.0
+    x0, x1 = x + pad, x + gap - pad
+    if x1 <= x0:
+        return
+    shaft_end = x0 + (x1 - x0) * 0.55
+    c.rect(x0, y - 1.5, shaft_end - x0, 3.0, fill=1, stroke=0)
+    p = c.beginPath()
+    p.moveTo(shaft_end, y - 7)
+    p.lineTo(x1, y)
+    p.lineTo(shaft_end, y + 7)
+    p.close()
+    c.drawPath(p, fill=1, stroke=0)
+
+
 def draw_slide(c, spec, meta, theme, font, number):
     c.setFillColor(HexColor(theme["background"]))
     c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
@@ -132,8 +148,12 @@ def draw_slide(c, spec, meta, theme, font, number):
         count = max(1, len(elements))
         gap, left, total = 18.0, 54.0, 852.0
         width = (total - gap * (count - 1)) / count
+        card_y, card_h = 120, 235
         for i, element in enumerate(elements):
-            draw_card(c, element, left + i * (width + gap), 120, width, 235, theme, font)
+            cx = left + i * (width + gap)
+            draw_card(c, element, cx, card_y, width, card_h, theme, font)
+            if layout == "process" and i < count - 1:
+                draw_process_arrow(c, cx + width, card_y + card_h / 2, gap, theme["accent"])
     elif layout == "quote":
         quote = elements[0].get("text", "") if elements else ""
         draw_text(c, quote, 80, 185, 800, 170, font, 25, theme["accent"], True, TA_CENTER)
